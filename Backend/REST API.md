@@ -877,8 +877,6 @@ The Settlement API provides endpoints for handling position settlement operation
 - Settlement history tracking
 - Settlement fee management
 
-_Note: Specific endpoints are available in the full API specification_
-
 ## 8. Collaterals API
 
 ### Get Collateral Summary
@@ -957,75 +955,6 @@ curl -X GET "https://api.boros.finance/core/v1/collaterals/summary?userAddress=0
   ]
 }
 ```
-
-## 9. Portfolio API
-
-### Portfolio Management
-
-The Portfolio API provides endpoints for:
-
-- Portfolio overview and analytics
-- Asset allocation tracking
-- Performance metrics
-- Risk assessment
-- Portfolio optimization insights
-
-_Note: Specific endpoints are available in the full API specification_
-
-## 10. Configs API
-
-### Configuration Management
-
-The Configs API provides endpoints for:
-
-- System configuration retrieval
-- Market configuration updates
-- User preference settings
-- Protocol parameter access
-
-_Note: Specific endpoints are available in the full API specification_
-
-## 11. vePendle API
-
-### Vote Escrowed Pendle Operations
-
-The vePendle API provides endpoints for:
-
-- vePENDLE token management
-- Voting power calculation
-- Governance participation
-- Reward distribution tracking
-
-_Note: Specific endpoints are available in the full API specification_
-
-## 12. Incentives API
-
-### Incentive and Rewards Management
-
-The Incentives API provides endpoints for:
-
-- Liquidity mining rewards
-- Trading incentives
-- Referral bonuses
-- Reward claiming operations
-- Incentive program analytics
-
-_Note: Specific endpoints are available in the full API specification_
-
-## 13. Volume API
-
-### Volume Analytics and Tracking
-
-The Volume API provides endpoints for:
-
-- Trading volume analytics
-- Volume-based rewards calculation
-- Historical volume data
-- Volume leaderboards
-- Market volume statistics
-
-_Note: Specific endpoints are available in the full API specification_
-
 ---
 
 # Send-Txs-Bot API
