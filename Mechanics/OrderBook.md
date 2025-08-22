@@ -101,7 +101,7 @@ enum TimeInForce {
     IOC,       // Immediate or Cancel - Executes against available liquidity, cancels unfilled portion
     FOK,       // Fill or Kill - Must fill entire size or transaction reverts
     ALO,       // Add Liquidity Only - Post-only order, transaction reverts if would match
-    SOFT_ALO   // Soft ALO - Post-only order, skips matching but doesn't revert
+    SOFT_ALO   // Soft ALO - If order would match, it gets skipped (not placed on orderbook) and transaction doesn't revert
 }
 ```
 

@@ -18,6 +18,12 @@ The Market contract provides comprehensive view functions for querying market st
 ) = market.descriptor();
 ```
 
+The rate threshold for margin calculations can be derived from `tickStep` and `iTickThresh`:
+
+```solidity
+int256 rateThreshold = TickMath.getRateAtTick(iTickThresh, tickStep);
+```
+
 ### `name()` and `symbol()`
 
 ```solidity

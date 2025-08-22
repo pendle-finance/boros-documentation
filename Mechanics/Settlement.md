@@ -1,6 +1,6 @@
 # Settlement
 
-In Boros, settlement refers to position update when a trade happens (e.g. taker order, market order is filled) and the periodic floating payment.
+In Boros, settlement refers to position update when a trade happens (e.g. market order placed, limit order filled) and the periodic floating payment.
 
 ### Trade Settlement
 
@@ -111,8 +111,7 @@ Events to process:
 Processing order:
 1. Process fills from 08:00-16:00 period (100 units)
 2. Process Floating payment at 16:00
-
-The limit order filled at 17:15 will be processed at next period (16:00-24:00).
+3. Process fills from 16:00-24:00 period (50 units)
 ```
 
 ## Notes

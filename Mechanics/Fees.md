@@ -7,7 +7,7 @@ Boros charges various fees to maintain protocol sustainability. This section out
 Boros charges fees when opening new positions through:
 
 - **Taker orders**: When executing against existing orders in the order book
-- **OTC swaps**: When opening swaps with other users
+- **OTC swaps**: When opening direct swaps with other users (typically AMMs)
 
 **Important**: Maker orders (limit orders placed in the order book) incur **no fees** when placed. Fees are only charged to the taker when these orders are filled.
 

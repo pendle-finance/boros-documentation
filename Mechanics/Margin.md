@@ -6,7 +6,7 @@ Similar to other derivative exchanges, Boros supports both cross margin and isol
 
 - **Isolated Margin**: Constrains collateral to a single market, providing position-level risk isolation. Liquidations in an isolated market only affect that specific position and do not impact other isolated positions or cross-margin positions.
 
-This document covers the essential concepts of Boros margin system. For complete specifications, please refer to the [Boros whitepaper](/whitepapers/Boros.pdf).
+This document covers the essential concepts of Boros margin system. For complete specifications, please refer to the [Boros whitepaper](https://github.com/pendle-finance/boros-core-public/blob/main/whitepapers/Boros.pdf).
 
 ## Position Value and Total Value
 
@@ -37,7 +37,7 @@ Initial margin requirements must be satisfied when opening new positions to ensu
 The pre-scaling initial margin (PIM) for each component is calculated as:
 
 ```
-Pre-scaling IM = Position Size × max(Rate Threshold, |Rate|)
+Pre-scaling IM = |Size| × max(|Rate|, Rate Threshold)
 ```
 
 Where `Rate Threshold` is a market parameter that sets the minimum rate used for margin calculations.
@@ -52,12 +52,55 @@ The system combines initial margin requirements from:
 
 PIM for active position is using with mark rate. PIM for orders are calculated using order rates.
 
-The calculation follows these rules:
+The calculation evaluates worst-case margin requirements for both long and short sides:
 
-- If user has short position and sum long order sizes ≤ position size: Long IM = 0
-- If user has long position and sum short order sizes ≤ position size: Short IM = 0
-- Otherwise: Combine all margin requirements
-- Final IM = max(Combined Long IM, Combined Short IM)
+**Long-side Pre-scaling IM:**
+
+- If current position is SHORT and total long order sizes ≤ |short position size|: Long PIM = 0 (orders only reduce position)
+- Otherwise: Long PIM = Sum of long orders' PIM + position PIM (adjusted for direction)
+
+**Short-side Pre-scaling IM:**
+
+- If current position is LONG and total short order sizes ≤ |long position size|: Short PIM = 0 (orders only reduce position)
+- Otherwise: Short PIM = Sum of short orders' PIM + position PIM (adjusted for direction)
+
+**Final Pre-scaling IM** = max(Long-side PIM, Short-side PIM)
+
+This ensures sufficient margin for the worst-case scenario where all orders on one side get filled.
+
+#### Examples
+
+_Note: For simplicity, these examples ignore the rate threshold parameter and use the actual rates directly._
+
+**Example 1: Long position with additional long orders**
+
+- Current position: LONG 1000 units at mark rate 5%
+- Open orders: LONG 500 units at 4.5%
+- Position PIM = 1000 × 5% = 50
+- Long orders PIM = 500 × 4.5% = 22.5
+- **Long-side PIM** = 50 + 22.5 = 72.5 (position and orders add up)
+- **Short-side PIM** = 0 (no short orders)
+- **Final PIM** = 72.5
+
+**Example 2: Long position with small short orders (not enough to flip position)**
+
+- Current position: LONG 1000 units at mark rate 5%
+- Open orders: SHORT 600 units at 5.5%
+- Position PIM = 1000 × 5% = 50
+- Short orders PIM = 600 × 5.5% = 33
+- **Long-side PIM** = 50 (no long orders)
+- **Short-side PIM** = 0 (600 < 1000, orders only reduce position)
+- **Final PIM** = 50
+
+**Example 3: Long position with large short orders (can flip position)**
+
+- Current position: LONG 1000 units at mark rate 5%
+- Open orders: SHORT 2500 units at 6%
+- Position PIM = 1000 × 5% = 50
+- Short orders PIM = 2500 × 6% = 150
+- **Long-side PIM** = 50 (no long orders)
+- **Short-side PIM** = 150 - 50 = 100
+- **Final PIM** = 100 (Short-side PIM is larger)
 
 ### Final Initial Margin
 
@@ -92,7 +135,7 @@ These relaxed conditions allow users to reduce risk even when under-collateraliz
 Maintenance margin represents the minimum collateral required to keep positions open:
 
 ```
-Maintenance Margin = |Position Size| × max(Rate Threshold, |Mark Rate|) × MM Factor × max(Time to Maturity, Time Threshold)
+Maintenance Margin = |Position Size| × max(|Mark Rate|, Rate Threshold) × MM Factor × max(Time to Maturity, Time Threshold)
 ```
 
 ### Health Ratio
