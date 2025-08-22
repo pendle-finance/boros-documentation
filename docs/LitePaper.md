@@ -1,3 +1,7 @@
+---
+hide_table_of_contents: true
+---
+
 # Boros Lite Paper
 
 This document outlines how Boros works in a more high level and user-centric manner. Exact formal definitions and formulas can be found in the [whitepaper](https://github.com/pendle-finance/boros-core-public/blob/main/whitepapers/AMM.pdf).
@@ -48,7 +52,7 @@ This document outlines how Boros works in a more high level and user-centric man
   - Open a limit order on the orderbook and wait for someone to take their order, creating a pair of swaps between the two users.
   - Do a market order, filling an existing limit orders, creating a pair of swaps between the two users.
 
-### Important terms and mechanics, using an example:
+### Important terms and mechanics, using an example
 
 - Example market: ETHUSDT funding rates on Binance
   - Maturity: in 6 months (June 2025)

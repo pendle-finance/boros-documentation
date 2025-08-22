@@ -1,4 +1,4 @@
-# Boros WebSocket Direct Usage Guide
+# Boros WebSocket
 
 This guide explains how to directly connect to Boros's WebSocket service using Socket.IO client.
 

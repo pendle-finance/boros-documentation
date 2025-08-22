@@ -6,7 +6,6 @@ The `Exchange` class provides an interface for interacting with the Boros tradin
 
 ```bash
 yarn add @pendle/sdk-boros
-
 ```
 
 ## Initialization

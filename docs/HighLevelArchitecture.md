@@ -1,3 +1,7 @@
+---
+hide_table_of_contents: true
+---
+
 # High Level Architecture
 
 ## Core Contracts
@@ -42,7 +46,7 @@ MarketHub is the market coordinator and risk manager of Boros. MarketHub holds u
 
 An account can enter a single market, if it is isolated, or multiple markets, if it is _CROSS_. Every market represents a different interest rate swap type: different token, different maturity, different reference rate. However, every market entered by a given account must share the same collateral token.
 
-After each user operation, MarketHub checks that accounts fulfill the [margin requirements](./Market/Margin.md).
+After each user operation, MarketHub checks that accounts fulfill the [margin requirements](./Mechanics/Margin.md).
 
 ### Market
 
