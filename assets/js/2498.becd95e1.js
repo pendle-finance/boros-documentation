@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkboros_documentation=self.webpackChunkboros_documentation||[]).push([[2498],{2498:(e,c,t)=>{t.d(c,{createArchitectureServices:()=>o.S});var o=t(3009);t(8198)}}]);

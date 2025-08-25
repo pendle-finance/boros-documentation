@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkboros_documentation=self.webpackChunkboros_documentation||[]).push([[2068],{2068:(e,o,s)=>{s.d(o,{createInfoServices:()=>c.v});var c=s(1366);s(8198)}}]);
