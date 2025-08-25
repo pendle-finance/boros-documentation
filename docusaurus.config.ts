@@ -9,7 +9,7 @@ import remarkMath from 'remark-math';
 const config: Config = {
   title: 'Boros Documentation',
   tagline:
-    'Pendle is a protocol that liberates future yield. It enables the tokenization and trading of future yield on a novel AMM designed to support assets with time decay.',
+    'Pendle Boros is an on-chain platform for trading interest rate swaps. The protocol enables users to take long or short positions on variable interest rates with leverage through a hybrid system combining a central limit order book and AMM.',
   favicon: 'img/favicon.ico',
   url: 'https://pendle.finance/',
   baseUrl: '/',
@@ -116,7 +116,11 @@ const config: Config = {
             {
               label: 'Media Kit',
               href: 'https://www.pendle.finance/brandguide'
-            }
+            },
+            {
+              label: 'Audits',
+              href: 'https://github.com/pendle-finance/boros-core-public/tree/main/audits/'
+            },
           ]
         }
       ]

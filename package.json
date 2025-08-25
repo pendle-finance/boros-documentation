@@ -2,7 +2,7 @@
   "name": "boros-documentation",
   "description": "Documentation of Pendle Boros",
   "packageManager": "yarn@4.9.3",
-  "license": "MIT",
+  "license": "Pendle Labs",
   "homepage": "https://boros-docs.pendle.finance",
   "repository": {
     "type": "git",

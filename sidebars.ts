@@ -5,7 +5,7 @@ const sidebars: SidebarsConfig = {
     { type: 'doc', id: 'Overview' },
     { type: 'doc', id: 'LitePaper', label: 'Lite Paper' },
     { type: 'doc', id: 'HighLevelArchitecture' },
-    { type: 'doc', id: 'FAQ', label: 'FAQ' },
+    // { type: 'doc', id: 'FAQ', label: 'FAQ' },
     {
       type: 'category',
       label: 'Mechanics',
