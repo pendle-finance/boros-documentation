@@ -12,7 +12,7 @@ const config: Config = {
     'Pendle Boros is an on-chain platform for trading interest rate swaps. The protocol enables users to take long or short positions on variable interest rates with leverage through a hybrid system combining a central limit order book and AMM.',
   favicon: 'img/favicon.ico',
   url: 'https://pendle.finance/',
-  baseUrl: '/',
+  baseUrl: '/boros/',
   organizationName: 'pendle-finance',
   projectName: 'boros-documentation',
   deploymentBranch: 'gh-pages',
